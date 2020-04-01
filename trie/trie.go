@@ -62,6 +62,7 @@ func (root *TrieNode) Path(i int8) {
 func main() {
 	rootNode = new(TrieNode)
 	rootNode.Insert("This")
+	rootNode.Insert("is")
 	rootNode.Insert("a")
 	rootNode.Insert("little")
 	rootNode.Insert("girl")
