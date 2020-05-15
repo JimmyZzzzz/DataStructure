@@ -83,3 +83,31 @@ func GetIntersectionNode(headA *MyLinkedList, headB *MyLinkedList) *MyLinkedList
 	return a
 
 }
+
+func removeNthFromEnd(head *MyLinkedList, n int) *MyLinkedList {
+
+	if head == nil {
+		return nil
+	}
+
+	i := 0
+	lHead, dHead := head, head
+
+	for lHead != nil {
+		lHead = lHead.Next
+		i++
+	}
+
+	index := n - i
+
+	for dHead != nil {
+		if index == 0 { //删头
+
+		} else if index == i { //删尾
+
+		} else {
+
+		}
+	}
+
+}

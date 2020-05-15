@@ -18,9 +18,7 @@ func main() {
 	root.Next.Next.Next = root.Next
 
 	//baselist.PrintMyLinkList(root)
-
+	fmt.Println(baselist.HasCycle(root))
 	fmt.Println(baselist.DetectCycle(root))
-	//fmt.Println(baselist.HasCycle(root))
-	baselist.DetectEchoCycle(root)
 
 }
