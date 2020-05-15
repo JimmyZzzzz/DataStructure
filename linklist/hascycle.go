@@ -1,17 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"linklist/baselist"
+)
 
-func hasCycle(head *MyLinkedList) bool {
+func hasCycle(head *baselist.MyLinkedList) bool {
 
-		return true
+	return true
 
 }
 
-func main()  {
+func main() {
 
-	head := Constructor()
+	head := baselist.Constructor()
 
-	fmt.Println(head)
+	head.AddAtHead(1)
+	head.AddAtHead(2)
+	head.AddAtHead(3)
+
+	baselist.PrintMyLinkList(head)
 
 }
