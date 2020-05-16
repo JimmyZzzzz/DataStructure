@@ -84,7 +84,7 @@ func GetIntersectionNode(headA *MyLinkedList, headB *MyLinkedList) *MyLinkedList
 
 }
 
-func removeNthFromEnd(head *MyLinkedList, n int) *MyLinkedList {
+func RemoveNthFromEnd(head *MyLinkedList, n int) *MyLinkedList {
 
 	if head == nil {
 		return nil
@@ -98,16 +98,65 @@ func removeNthFromEnd(head *MyLinkedList, n int) *MyLinkedList {
 		i++
 	}
 
-	index := n - i
+	index := i - n
+	prev := dHead
+
+	i-- //变成索引最长刻度
+
+	//删头
+	if index == 0 && dHead.Next != nil { //头下一节不为空
+		*dHead = *dHead.Next
+		return dHead
+	} else if index == 0 && dHead.Next == nil { //头下一节点为空
+		dHead = nil
+		return dHead
+	}
+
+	didx := 0
 
 	for dHead != nil {
-		if index == 0 { //删头
 
-		} else if index == i { //删尾
+		if didx == index {
 
-		} else {
+			if index == i { //删尾
+				prev.Next = nil
+				break
+			} else {
+				*dHead = *dHead.Next
+				break
+			}
 
 		}
+
+		prev = dHead
+		dHead = dHead.Next
+		didx++
+
 	}
+
+	return head
+
+}
+
+func ReverseLinkList(head *MyLinkedList) *MyLinkedList {
+
+	if head == nil {
+		return nil
+	}
+
+	curr, next := head, head
+
+	var prev *MyLinkedList = nil
+
+	for curr != nil {
+
+		next = curr.Next
+		curr.Next = prev
+		prev = curr
+		curr = next
+
+	}
+
+	return prev
 
 }
