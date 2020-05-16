@@ -160,3 +160,26 @@ func ReverseLinkList(head *MyLinkedList) *MyLinkedList {
 	return prev
 
 }
+
+func RemoveElements(head *MyLinkedList, val int) *MyLinkedList {
+	if head == nil {
+		return head
+	}
+
+	temp := &MyLinkedList{}
+	prev, curr := temp, head
+
+	for curr != nil {
+		if curr.Val == val {
+			prev.Next = curr.Next
+		} else {
+			prev = curr
+		}
+
+		curr = curr.Next
+
+	}
+
+	return temp.Next
+
+}

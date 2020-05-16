@@ -56,4 +56,7 @@ func main() {
 	ReverseRoot = baselist.ReverseLinkList(ReverseRoot)
 	baselist.PrintMyLinkList(ReverseRoot)
 
+	RemeElementsRoot := baselist.Constructor()
+	RemeElementsRoot.AddAtHead(1)
+	fmt.Println(baselist.RemoveElements(RemeElementsRoot, 1))
 }
