@@ -183,3 +183,23 @@ func RemoveElements(head *MyLinkedList, val int) *MyLinkedList {
 	return temp.Next
 
 }
+
+func OddEvenList(head *MyLinkedList) {
+
+	if head == nil || head.Next == nil {
+		return
+	}
+
+	even, odd := head, head.Next
+	oddHead := odd
+
+	for odd != nil && odd.Next != nil {
+		even.Next = odd.Next
+		even = odd.Next
+		odd.Next = even.Next
+		odd = even.Next
+	}
+
+	even.Next = oddHead
+
+}

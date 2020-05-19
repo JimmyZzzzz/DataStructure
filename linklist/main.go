@@ -59,4 +59,17 @@ func main() {
 	RemeElementsRoot := baselist.Constructor()
 	RemeElementsRoot.AddAtHead(1)
 	fmt.Println(baselist.RemoveElements(RemeElementsRoot, 1))
+
+	oddEvenRoot := baselist.Constructor()
+	oddEvenRoot.AddAtHead(1)
+	oddEvenRoot.AddAtTail(2)
+	oddEvenRoot.AddAtTail(3)
+	oddEvenRoot.AddAtTail(4)
+	oddEvenRoot.AddAtTail(5)
+	oddEvenRoot.AddAtTail(6)
+	oddEvenRoot.AddAtTail(7)
+	oddEvenRoot.AddAtTail(8)
+	baselist.PrintMyLinkList(oddEvenRoot)
+	baselist.OddEvenList(oddEvenRoot)
+	baselist.PrintMyLinkList(oddEvenRoot)
 }
