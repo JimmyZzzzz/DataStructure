@@ -203,3 +203,51 @@ func OddEvenList(head *MyLinkedList) {
 	even.Next = oddHead
 
 }
+
+type DoubleLinkNode struct {
+	Val   int
+	Prev  *DoubleLinkNode
+	Next  *DoubleLinkNode
+	Child *DoubleLinkNode
+}
+
+//思路把存在子链合到主链上，再依次向下节点遍历。
+func flatten(root *DoubleLinkNode) *DoubleLinkNode {
+
+	if root == nil {
+		return nil
+	}
+
+	cur := root
+
+	for cur != nil {
+
+		if cur.Child != nil {
+
+			child := cur.Child
+			next := cur.Next
+
+			//查找子链尾部
+			for child.Next != nil {
+				child = child.Next
+			}
+
+			cur.Next = cur.Child
+			cur.Child.Prev = cur
+			cur.Child = nil
+
+			//找到最后个子链tailor
+			child.Next = next
+			if next != nil {
+				next.Prev = child
+			}
+
+		}
+
+		cur = cur.Next
+
+	}
+
+	return root
+
+}
